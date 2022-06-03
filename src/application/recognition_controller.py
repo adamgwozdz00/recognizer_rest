@@ -13,9 +13,10 @@ class RecognitionController(FlaskView):
 
     @route('/images', methods=['POST'])
     def upload_image(self):
-        image = request.files.get('image', '')
+        image = request.files['image'].read()
         return self.__service.recognize(image).to_json()
 
-    @route('/images', methods=['GET'])
+    @route('/', methods=['GET'])
     def get_image(self):
-        return "<p>Works GET!</p>"
+        with open("resources/index.html", "r") as html_file:
+            return html_file.read()
