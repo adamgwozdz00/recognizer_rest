@@ -1,6 +1,8 @@
 # recognizer_rest
 
 ## Instrukcja docker
+### Ważne!!!
+###Docker desktop i powershell uruchamiamy jako administrator!!!!
 
 ![Zrzut ekranu 2022-06-04 093700](https://user-images.githubusercontent.com/70854700/171991228-9c9af221-d6b5-4616-8250-02c28d22a095.png)
 ![Zrzut ekranu 2022-06-04 093744](https://user-images.githubusercontent.com/70854700/171991232-6866744a-8b6a-40b7-8969-32255ff8a6fd.png)
