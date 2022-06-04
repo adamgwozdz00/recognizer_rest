@@ -18,5 +18,5 @@ class RecognitionController(FlaskView):
 
     @route('/', methods=['GET'])
     def get_image(self):
-        with open("resources/index.html", "r") as html_file:
+        with open("src/application/resources/index.html", "r") as html_file:
             return html_file.read()
