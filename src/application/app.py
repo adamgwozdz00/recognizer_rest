@@ -1,8 +1,10 @@
 from flask import Flask
+from flask_cors import CORS
 
 from src.application.recognition_controller import RecognitionController
 
 app = Flask(__name__)
+cors = CORS(app, resources={r"/*": {"origins": "*"}})
 controller = RecognitionController()
 controller.register(app, route_base='/')
 
