@@ -1,0 +1,1 @@
+python yolov5/detect.py --weights yolov5/runs/train/exp/weights/best.pt --img 480 --conf 0.3 --source src/application/resources/images/image.jpg

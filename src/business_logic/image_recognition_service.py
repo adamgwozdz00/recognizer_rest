@@ -1,17 +1,44 @@
-import cv2.cv2
+import os
+from time import sleep
 
+from src.business_logic.ai_service import AIService
 from src.business_logic.image_information import ImageInformation
-from src.business_logic.recognition_result import RecognitionResult
-from cv2.cv2 import imwrite
+from src.business_logic.images_repository import ImagesRepository
+from src.business_logic.results_repository import ResultsRepository
 
 
 class ImageRecognitionService:
-    __MOCK_RESULT = RecognitionResult.create_success(ImageInformation("black short screw", 88.2))
 
-    def recognize(self, img: any) -> RecognitionResult:
+    def __init__(self, images_repository: ImagesRepository, ai_service: AIService,
+                 results_repository: ResultsRepository):
+        self.image_repository = images_repository
+        self.ai_service = ai_service
+        self.results_repository = results_repository
+
+    def put_image(self, image) -> ImageInformation:
         try:
-            imwrite('resources/result.png', img)
-            # use model
-            return RecognitionResult.create_success(ImageInformation("black short screw", 88.2))
+            self.image_repository.store(image)
+            return ImageInformation(True, "")
+        except Exception as e:
+            return ImageInformation.create_fail(str(e))
+
+    def recognize(self):
+        try:
+            image_path = self.image_repository.load()
+            result_path = self.results_repository.load()
+            if not os.path.exists(image_path):
+                return
+            if not os.path.exists(result_path):
+                self.ai_service.work(image_path)
+            sleep(5)
+
+
         except Exception as er:
-            return RecognitionResult.create_fail()
+            print(er)
+
+    def get_result(self) -> str:
+        return self.results_repository.load()
+
+    def clear(self):
+        self.results_repository.clear()
+        self.image_repository.clear()
