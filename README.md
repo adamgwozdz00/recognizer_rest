@@ -15,8 +15,6 @@
 ![Zrzut ekranu 2022-06-04 101041](https://user-images.githubusercontent.com/70854700/171991240-a7623d3c-6fa5-451e-8c74-fa3f709fd6e0.png)
 ![Zrzut ekranu 2022-06-04 101623](https://user-images.githubusercontent.com/70854700/171991242-c40059ed-7df8-4c42-970c-24ecd87c375a.png)
 ![Zrzut ekranu 2022-06-04 101646](https://user-images.githubusercontent.com/70854700/171991245-13f1f975-ad49-4ca2-808a-51fee5301852.png)
-![Zrzut ekranu 2022-06-04 101950](https://user-images.githubusercontent.com/70854700/171991247-3ab52926-9dc7-42b4-9f8d-73e88bc3dce4.png)
-![Zrzut ekranu 2022-06-04 102016](https://user-images.githubusercontent.com/70854700/171991248-8a1fb0e7-d2fd-4406-a308-68bb3067a669.png)
 
 ## Wklejamy do powershela:
 `docker pull adamgwozdz00/recognizer_api` - zaciąga obraz dockerowy backendowej aplikacji z sieci (może potrwać bo waży 3.27 GB)
