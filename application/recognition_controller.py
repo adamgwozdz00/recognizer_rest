@@ -1,11 +1,8 @@
-import pathlib
-from pathlib import Path
-
 from flask import Blueprint, send_file
 from flask_classy import FlaskView, route, request
 
-from src.application.Config import recognition_service
-from src.application.recognition_response import RecognitionResponse
+from application.Config import recognition_service
+from application.recognition_response import RecognitionResponse
 
 images = Blueprint('images', __name__)
 

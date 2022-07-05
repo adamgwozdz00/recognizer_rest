@@ -1,4 +1,4 @@
-from src.business_logic.image_information import ImageInformation
+from business_logic.image_information import ImageInformation
 
 
 class RecognitionResult:

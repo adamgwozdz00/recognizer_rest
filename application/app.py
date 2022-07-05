@@ -1,9 +1,9 @@
 from flask import Flask
 from flask_cors import CORS
 
-from src.acl.Config import image_recognition_service
-from src.application.recognition_controller import RecognitionController
-from src.business_logic.recognition_runner import RecognitionRunner
+from acl.Config import image_recognition_service
+from application.recognition_controller import RecognitionController
+from business_logic.recognition_runner import RecognitionRunner
 
 app = Flask(__name__)
 cors = CORS(app, resources={r"/*": {"origins": "*"}})

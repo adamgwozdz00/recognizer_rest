@@ -1,14 +1,14 @@
 import os
 import pathlib
+import shutil
 
-from src.business_logic.results_repository import ResultsRepository
+from business_logic.results_repository import ResultsRepository
 
 
 class ResultsFileRepository(ResultsRepository):
     def __init__(self):
         self.abs_path_to_files = pathlib.Path(__file__). \
             parent \
-            .parent \
             .parent \
             .joinpath("yolov5") \
             .joinpath("runs")
@@ -17,11 +17,11 @@ class ResultsFileRepository(ResultsRepository):
         return f"{self.abs_path_to_files.joinpath('detect').joinpath('exp')}/image.jpg"
 
     def is_exists(self) -> bool:
-        os.path.exists(f"{self.abs_path_to_files.joinpath('detect').joinpath('exp')}/image.jpg")
+        return os.path.exists(self.abs_path_to_files.joinpath('detect').joinpath('exp').joinpath('image.jpg'))
 
     def clear(self):
         if self.is_exists():
-            os.remove(f"{self.abs_path_to_files.joinpath('detect').joinpath('exp')}/image.jpg")
+            shutil.rmtree(self.abs_path_to_files.joinpath('detect').joinpath('exp'))
 
 
 

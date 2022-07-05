@@ -3,3 +3,11 @@ run_app_win.cmd
 *.md
 *.ipynb
 venv
+application/resources/images/*.jpg
+yolov5/LICENSE
+*.jpg
+*.md
+.idea
+run_app_win.cmd
+build_local_app.sh
+.DS_Store

@@ -4,15 +4,15 @@ import pathlib
 import numpy
 from cv2.cv2 import imdecode, IMREAD_COLOR, imwrite
 
-from src.business_logic.images_repository import ImagesRepository
+from business_logic.images_repository import ImagesRepository
 
 
 class ImagesFileRepository(ImagesRepository):
 
     def __init__(self):
         self.abs_path_to_files = pathlib.Path(__file__). \
-            parent \
-            .parent \
+            parent\
+            .parent\
             .joinpath("application") \
             .joinpath("resources") \
             .joinpath("images")

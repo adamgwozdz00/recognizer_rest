@@ -1,15 +1,15 @@
 import pathlib
 import subprocess
 
-from src.business_logic.ai_service import AIService
+from business_logic.ai_service import AIService
 
 
 class AIServiceAdapter(AIService):
     # abs_path = str(pathlib.Path(__file__).parent.parent.parent.joinpath('yolov5').joinpath('detect.py'))
     # weights = str(
     #     pathlib.Path(__file__).parent.parent.parent.joinpath('yolov5').joinpath("runs/train/exp/weights/best.pt"))
-    abs_path = '../../detect.sh'
-
+    abs_path = pathlib.Path(__file__).parent.parent.joinpath("detect.sh")
+    print(abs_path)
     def work(self, image_path: str) -> any:
         # conf = 0.3
         # subprocess.run(

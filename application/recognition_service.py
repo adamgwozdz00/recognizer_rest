@@ -1,6 +1,6 @@
-from src.application.recognition_response import RecognitionResponse
-from src.business_logic.image_information import ImageInformation
-from src.business_logic.image_recognition_service import ImageRecognitionService
+from application.recognition_response import RecognitionResponse
+from business_logic.image_information import ImageInformation
+from business_logic.image_recognition_service import ImageRecognitionService
 
 
 class RecognitionService:

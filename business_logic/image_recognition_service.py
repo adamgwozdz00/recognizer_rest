@@ -1,10 +1,10 @@
 import os
 from time import sleep
 
-from src.business_logic.ai_service import AIService
-from src.business_logic.image_information import ImageInformation
-from src.business_logic.images_repository import ImagesRepository
-from src.business_logic.results_repository import ResultsRepository
+from business_logic.ai_service import AIService
+from business_logic.image_information import ImageInformation
+from business_logic.images_repository import ImagesRepository
+from business_logic.results_repository import ResultsRepository
 
 
 class ImageRecognitionService:
@@ -30,7 +30,7 @@ class ImageRecognitionService:
                 return
             if not os.path.exists(result_path):
                 self.ai_service.work(image_path)
-            sleep(5)
+            sleep(1)
 
 
         except Exception as er:
