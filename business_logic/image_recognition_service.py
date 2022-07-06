@@ -5,6 +5,8 @@ from business_logic.ai_service import AIService
 from business_logic.image_information import ImageInformation
 from business_logic.images_repository import ImagesRepository
 from business_logic.results_repository import ResultsRepository
+from logger.Logger import Logger
+from logger.log_path import get_path
 
 
 class ImageRecognitionService:
@@ -14,6 +16,7 @@ class ImageRecognitionService:
         self.image_repository = images_repository
         self.ai_service = ai_service
         self.results_repository = results_repository
+        self.logger = Logger(get_path())
 
     def put_image(self, image) -> ImageInformation:
         try:
@@ -27,14 +30,13 @@ class ImageRecognitionService:
             image_path = self.image_repository.load()
             result_path = self.results_repository.load()
             if not os.path.exists(image_path):
+                self.logger.debug("Image not found ...")
                 return
             if not os.path.exists(result_path):
-                self.ai_service.work(image_path)
+                self.ai_service.work()
             sleep(1)
-
-
         except Exception as er:
-            print(er)
+            self.logger.debug(str(er))
 
     def get_result(self) -> str:
         return self.results_repository.load()

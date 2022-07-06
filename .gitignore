@@ -2,3 +2,5 @@ venv
 .DS_Store
 .idea
 yolov5
+venv36
+*.log

@@ -11,3 +11,5 @@ yolov5/LICENSE
 run_app_win.cmd
 build_local_app.sh
 .DS_Store
+venv36
+*.log
