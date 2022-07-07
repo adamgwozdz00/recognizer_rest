@@ -1,6 +1,6 @@
 ## Wstęp
 Aplikacja służąca do detekcji obiektów na obrazie wykorzystująca nauczony przez nas model sztucznej inteligencji.
-
+## Zdjęcia testowe znajdziesz tutaj https://drive.google.com/file/d/1sC0DxJf1q9wx_Ty9ehx4yXcqqGsh6imO/view?usp=sharing
 ## Instalacja
 
 ### Instrukcja docker
