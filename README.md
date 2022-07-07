@@ -30,5 +30,20 @@
 https://www.postman.com/
 ![Zrzut ekranu 2022-07-4 o 23 36 32](https://user-images.githubusercontent.com/70854700/177261272-f5da11ac-9c7b-4dd5-a001-41850638963d.png)
 ![obraz](https://user-images.githubusercontent.com/70854700/177262210-86a46d88-815c-44eb-8779-45c46bd27196.png)
-### Podgląd zdjęcia
-![obraz](https://user-images.githubusercontent.com/70854700/177262299-87e999fb-6e16-4f0b-8f07-58df9cfe9c6d.png)
+Odbieramy zdjęcie postmanem
+<img width="1050" alt="obraz" src="https://user-images.githubusercontent.com/70854700/177870581-ca6ae499-1379-4267-998a-d093f30a7a5b.png">
+Kopiujemy zdekodowane zdjęcie i wklejamy na stronę https://codebeautify.org/base64-to-image-converter
+<img width="975" alt="obraz" src="https://user-images.githubusercontent.com/70854700/177870997-eb4ebee7-81b0-4aa0-bd40-488d0a15462e.png">
+## Lokalne budowanie obrazu docerowego
+Zamiast `docker pull adamgwozdz00/recognizer_api` można zbudować obraz u siebie, w tym celu należy:
+1. Pobrać plik best.py z https://drive.google.com/file/d/1rKmrWHcD3Y5qrC_3fq-XIXHIcGRX1qdg/view?usp=sharing
+2. Sciągnąć to repozytorium
+3. Sciągnąć oprogramowanie yolov5 `git clone https://github.com/ultralytics/yolov5.git`
+4. W folderze yolov5 stworzyć foldery -> `runs/train/exp/weights` i wrzucić do weights plik best.pt
+5. Przenieść folder yolov5 do folderu recognizer_api
+6. W folderze recognizer_api wpisać komende `docker build -t nazwa_obrazu .`
+7. Odpalić aplikację `docker run -d -p 5001:5001 nazwa_aplikacji`
+
+Podczas 1 odpalenia aplikacji może być problem z detekcją obrazu ponieważ yolov5 nie widzi biblioteki, w takim przpadku należy poczekać do ok 15 min aż biblioteki zostaną uaktualnione i można wysłać rządanie o pobranie rozpoznanego zdjęcia.
+
+
