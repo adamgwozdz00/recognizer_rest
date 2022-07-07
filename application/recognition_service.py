@@ -8,13 +8,16 @@ class RecognitionService:
         self.__service = service
 
     def load_image(self):
-        return self.__service.get_result()
+        image = self.__service.get_result()
+        if not image:
+            return RecognitionResponse.get_fail_response("Image not found...")
+        return RecognitionResponse.get_success_response(image)
 
     def send_image(self, image) -> RecognitionResponse:
         result: ImageInformation = self.__service.put_image(image)
         if result.is_success():
-            return RecognitionResponse.get_success_response()
-        return RecognitionResponse.get_fail_response()
+            return RecognitionResponse.get_success_response(None)
+        return RecognitionResponse.get_fail_response("Something went wrong during sending image...")
 
     def clear(self):
         self.__service.clear()

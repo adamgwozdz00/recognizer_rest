@@ -7,11 +7,12 @@ from dataclasses_json import dataclass_json
 class RecognitionResponse:
     success: bool
     message: str
+    image: bytes
 
     @staticmethod
-    def get_success_response():
-        return RecognitionResponse(True, "")
+    def get_success_response(image: bytes):
+        return RecognitionResponse(True, "", image)
 
     @staticmethod
     def get_fail_response(ex: str):
-        return RecognitionResponse(False, ex)
+        return RecognitionResponse(False, ex, None)

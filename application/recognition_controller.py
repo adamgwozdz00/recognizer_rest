@@ -23,10 +23,7 @@ class RecognitionController(FlaskView):
 
     @route('/images', methods=['GET'])
     def get_recognized_image(self):
-        try:
-            return send_file(self.service.load_image(), mimetype='image/jpg')
-        except Exception as e:
-            return RecognitionResponse.get_fail_response(str(e)).to_json()
+        return self.service.load_image().to_json()
 
     @route('/', methods=['GET'])
     def get_image(self):

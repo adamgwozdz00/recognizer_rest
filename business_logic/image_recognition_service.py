@@ -28,17 +28,17 @@ class ImageRecognitionService:
     def recognize(self):
         try:
             image_path = self.image_repository.load()
-            result_path = self.results_repository.load()
+            result = self.results_repository.load()
             if not os.path.exists(image_path):
                 self.logger.debug("Image not found ...")
                 return
-            if not os.path.exists(result_path):
+            if not result:
                 self.ai_service.work()
             sleep(1)
         except Exception as er:
             self.logger.debug(str(er))
 
-    def get_result(self) -> str:
+    def get_result(self) -> bytes:
         return self.results_repository.load()
 
     def clear(self):
