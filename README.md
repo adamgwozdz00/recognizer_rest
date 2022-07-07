@@ -54,5 +54,75 @@ Zamiast `docker pull adamgwozdz00/recognizer_api` można zbudować obraz u siebi
 7. Odpalić aplikację `docker run -d -p 5001:5001 nazwa_aplikacji`
 
 Podczas 1 odpalenia aplikacji może być problem z detekcją obrazu ponieważ yolov5 nie widzi biblioteki, w takim przpadku należy poczekać do ok 15 min aż biblioteki zostaną uaktualnione i można wysłać rządanie o pobranie rozpoznanego zdjęcia.
+![image](https://user-images.githubusercontent.com/70854700/177876029-3b7e1977-5f56-4365-9d0c-22a4b610ba2b.png)
+
+```
+ * Serving Flask app 'application.app' (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+detect: weights=['yolov5/runs/train/exp/weights/best.pt'], source=application/resources/images/image.jpg, data=yolov5/data/coco128.yaml, imgsz=[480, 480], conf_thres=0.5, iou_thres=0.45, max_det=1000, device=, view_img=False, save_txt=False, save_conf=False, save_crop=False, nosave=False, classes=None, agnostic_nms=False, augment=False, visualize=False, update=False, project=yolov5/runs/detect, name=exp, exist_ok=False, line_thickness=3, hide_labels=False, hide_conf=False, half=False, dnn=False
+requirements: torch!=1.12.0,>=1.7.0 not found and is required by YOLOv5, attempting auto-update...
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+torchvision 0.13.0 requires torch==1.12.0, but you have torch 1.11.0 which is incompatible.
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+WARNING: You are using pip version 22.0.4; however, version 22.1.2 is available.
+You should consider upgrading via the '/usr/local/bin/python -m pip install --upgrade pip' command.
+Collecting torch!=1.12.0,>=1.7.0
+  Downloading torch-1.11.0-cp38-cp38-manylinux1_x86_64.whl (750.6 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 750.6/750.6 MB ? eta 0:00:00
+Requirement already satisfied: typing-extensions in /usr/local/lib/python3.8/site-packages (from torch!=1.12.0,>=1.7.0) (4.2.0)
+Installing collected packages: torch
+  Attempting uninstall: torch
+    Found existing installation: torch 1.12.0
+    Uninstalling torch-1.12.0:
+      Successfully uninstalled torch-1.12.0
+Successfully installed torch-1.11.0
+
+requirements: torchvision!=0.13.0,>=0.8.1 not found and is required by YOLOv5, attempting auto-update...
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+WARNING: You are using pip version 22.0.4; however, version 22.1.2 is available.
+You should consider upgrading via the '/usr/local/bin/python -m pip install --upgrade pip' command.
+Collecting torchvision!=0.13.0,>=0.8.1
+  Downloading torchvision-0.12.0-cp38-cp38-manylinux1_x86_64.whl (21.0 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 21.0/21.0 MB 5.0 MB/s eta 0:00:00
+Requirement already satisfied: pillow!=8.3.*,>=5.3.0 in /usr/local/lib/python3.8/site-packages (from torchvision!=0.13.0,>=0.8.1) (9.2.0)
+Requirement already satisfied: typing-extensions in /usr/local/lib/python3.8/site-packages (from torchvision!=0.13.0,>=0.8.1) (4.2.0)
+Requirement already satisfied: numpy in /usr/local/lib/python3.8/site-packages (from torchvision!=0.13.0,>=0.8.1) (1.22.4)
+Requirement already satisfied: torch==1.11.0 in /usr/local/lib/python3.8/site-packages (from torchvision!=0.13.0,>=0.8.1) (1.11.0)
+Requirement already satisfied: requests in /usr/local/lib/python3.8/site-packages (from torchvision!=0.13.0,>=0.8.1) (2.27.1)
+Requirement already satisfied: urllib3<1.27,>=1.21.1 in /usr/local/lib/python3.8/site-packages (from requests->torchvision!=0.13.0,>=0.8.1) (1.26.9)
+Requirement already satisfied: certifi>=2017.4.17 in /usr/local/lib/python3.8/site-packages (from requests->torchvision!=0.13.0,>=0.8.1) (2022.5.18.1)
+Requirement already satisfied: charset-normalizer~=2.0.0 in /usr/local/lib/python3.8/site-packages (from requests->torchvision!=0.13.0,>=0.8.1) (2.0.12)
+Requirement already satisfied: idna<4,>=2.5 in /usr/local/lib/python3.8/site-packages (from requests->torchvision!=0.13.0,>=0.8.1) (3.3)
+Installing collected packages: torchvision
+  Attempting uninstall: torchvision
+    Found existing installation: torchvision 0.13.0
+    Uninstalling torchvision-0.13.0:
+      Successfully uninstalled torchvision-0.13.0
+Successfully installed torchvision-0.12.0
+
+requirements: 2 packages updated per /yolov5/requirements.txt
+requirements: ⚠️ Restart runtime or rerun command for updates to take effect
+
+/bin/sh: 1: git: not found
+YOLOv5 🚀 2022-7-7 Python-3.8.13 torch-1.12.0+cu102 CPU
+
+Fusing layers... 
+YOLOv5x summary: 444 layers, 86193601 parameters, 0 gradients, 203.8 GFLOPs
+image 1/1 /application/resources/images/image.jpg: 320x480 3 srubas, Done. (2.433s)
+Speed: 2.3ms pre-process, 2433.2ms inference, 47.7ms NMS per image at shape (1, 3, 480, 480)
+Results saved to yolov5/runs/detect/exp
+``` - takie logi mogą wystąpić
 
 
+Pojawienie się 
+```YOLOv5 🚀 2022-7-7 Python-3.8.13 torch-1.12.0+cu102 CPU
+
+Fusing layers... 
+YOLOv5x summary: 444 layers, 86193601 parameters, 0 gradients, 203.8 GFLOPs
+image 1/1 /application/resources/images/image.jpg: 320x480 3 srubas, Done. (2.433s)
+Speed: 2.3ms pre-process, 2433.2ms inference, 47.7ms NMS per image at shape (1, 3, 480, 480)
+Results saved to yolov5/runs/detect/exp```
+- zwiastuje sukcess w działaniu
